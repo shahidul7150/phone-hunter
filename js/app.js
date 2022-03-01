@@ -1,7 +1,8 @@
 const loadMobileData = () => {
     document.getElementById('parent').innerHTML = ''
     document.getElementById('details-parent').innerText = ''
-    document.getElementById('list').innerHTML =''
+    document.getElementById('list').innerHTML = ''
+    
     const inputValue = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
@@ -13,7 +14,9 @@ const loadMobileData = () => {
 
 const displayMobile = (mobiles) => {
     
-    console.log(mobiles);
+    // console.log(mobiles);
+
+    // if no value match with data 
     if (mobiles.length == 0) {
         console.log('Error');
         document.getElementById('search-err').style.display="block"
@@ -54,6 +57,7 @@ const loadeDetailData = (detailId) => {
     .then(data=>displayMobileInfo(data))
 }
 
+// product middle column design and dynamic 
 const displayMobileInfo = (info) => {
     // console.log(info.data.sensors[0]);
     const detailsParent = document.getElementById('details-parent');
@@ -86,17 +90,13 @@ const displayMobileInfo = (info) => {
 </div>
 
 `
+    // add sensor option 
     const arraySensors = info.data.mainFeatures.sensors;
     const arraySensor = arraySensors.join();
     const arraysens = arraySensor.split(",")
     console.log(arraysens.length);
     document.getElementById('list').innerHTML = `
     <li>${arraysens}</li>
-    `;
-    // for (const prop in arraySensor) {
-    //     console. log(arraySensor[prop]);
-    //     ul.innerText=arraySensor[prop]
-    // }
-    
+    `; 
     detailsParent.appendChild(div);
 }
