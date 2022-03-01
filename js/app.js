@@ -1,9 +1,12 @@
 const loadMobileData = () => {
+    document.getElementById('parent').innerHTML=''
     const inputValue = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
         .then(res => res.json())
-    .then(data=>displayMobile(data.data.splice(0,20)))
+        .then(data => displayMobile(data.data.splice(0, 20)));
+        document.getElementById('search-input').value=''
+    
 }
 
 const displayMobile = (mobiles) => {
