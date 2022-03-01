@@ -3,13 +3,12 @@ const loadMobileData = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
         .then(res => res.json())
-    .then(data=>displayMobile(data.data))
+    .then(data=>displayMobile(data.data.splice(0,20)))
 }
 
 const displayMobile = (mobiles) => {
     console.log(mobiles);
     const parent = document.getElementById('parent')
-    
     mobiles.forEach((mobile) => {
         console.log(mobile.slug);
             const div=document.createElement('div')
