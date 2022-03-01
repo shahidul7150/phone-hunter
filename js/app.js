@@ -10,6 +10,7 @@ const loadMobileData = () => {
 }
 
 const displayMobile = (mobiles) => {
+    
     console.log(mobiles);
     const parent = document.getElementById('parent')
     mobiles.forEach((mobile) => {
@@ -36,9 +37,34 @@ const displayMobile = (mobiles) => {
 }
 
 const loadeDetailData = (detailId) => {
+    document.getElementById('details-parent').innerText='' //clear previous mobile info
     console.log(detailId);
     const url = `https://openapi.programming-hero.com/api/phone/${detailId}`
     fetch(url)
         .then(res => res.json())
-    .then(data=>console.log(data))
+    .then(data=>displayMobileInfo(data))
+}
+
+const displayMobileInfo = (info) => {
+    console.log(info.data.name);
+    const detailsParent = document.getElementById('details-parent');
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <div class="col mb-5">
+    <div class="card">
+      <img src="${info.data.image}" class="card-img-top width-detail-img mx-auto" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Name:${info.data.name}</h5>
+        <p class="card-text">Release date: ${info.data.releaseDate}</p>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+  <h4>Feature</h4>
+</div>
+<div>
+  <h4>Specifications</h4>
+</div>
+    `
+    detailsParent.appendChild(div)
 }

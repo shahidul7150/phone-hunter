@@ -30,6 +30,11 @@ body{
     height: 120px;
     padding-top: 10px;
 }
+.width-detail-img{
+    width: 200px;
+    height: 240px;
+    padding-top: 10px;
+}
 .no-phone-text{
     display: none;
 }
