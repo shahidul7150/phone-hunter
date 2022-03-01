@@ -49,3 +49,7 @@ li{
 .sensor-margin{
     margin-top: 70px;
 }
+
+#spinner{
+    display: none;
+}

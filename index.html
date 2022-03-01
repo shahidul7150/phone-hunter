@@ -21,6 +21,7 @@
         <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 ">
             <!-- search side left column  -->
             <div >
+                
                 <!-- searching -->
              <div class="d-flex input-group">
                  <input id="search-input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -28,6 +29,16 @@
                  <button onclick="loadMobileData()" class="btn btn-outline-success rounded" type="button">Search</button>
                 </div>
 
+                <!-- spinning  -->
+                <div id="spinner">
+                    <div class="text-center d-flex justify-content-center align-items-center mt-5">
+                        <div class="spinner-border" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </div>
+                </div>
+
+                  <!-- no phone found empty data base msg  -->
                 <div id="no-phone-text">
                     <h5 id="search-err" class="text-center m-5">No phone found</h5>
                 </div>

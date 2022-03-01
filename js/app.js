@@ -3,6 +3,7 @@ const loadMobileData = () => {
     document.getElementById('details-parent').innerText = ''
     document.getElementById('list').innerHTML = ''
     
+    document.getElementById("spinner").style.display="block"
     const inputValue = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
@@ -13,13 +14,15 @@ const loadMobileData = () => {
 }
 
 const displayMobile = (mobiles) => {
-    
+    document.getElementById("spinner").style.display="none"
     // console.log(mobiles);
 
     // if no value match with data 
     if (mobiles.length == 0) {
+        document.getElementById("spinner").style.display="block"
         console.log('Error');
-        document.getElementById('search-err').style.display="block"
+        document.getElementById('search-err').style.display = "block"
+        document.getElementById("spinner").style.display="none"
     } else {
         document.getElementById('search-err').text=''
         document.getElementById('search-err').style.display="none"
