@@ -1,6 +1,7 @@
 const loadMobileData = () => {
     document.getElementById('parent').innerHTML = ''
-    document.getElementById('details-parent').innerText=''
+    document.getElementById('details-parent').innerText = ''
+    document.getElementById('list').innerHTML =''
     const inputValue = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
@@ -15,7 +16,7 @@ const displayMobile = (mobiles) => {
     console.log(mobiles);
     const parent = document.getElementById('parent')
     mobiles.forEach((mobile) => {
-        console.log(mobile.slug);
+        // console.log(mobile.slug);
             const div=document.createElement('div')
             div.innerHTML = `
             <div class="col">
@@ -31,15 +32,14 @@ const displayMobile = (mobiles) => {
     </div>
   </div>
          `
-        console.log(mobile.slug);
         parent.appendChild(div)
-        console.log(mobile);
+        // console.log(mobile);
     })
 }
 
 const loadeDetailData = (detailId) => {
     document.getElementById('details-parent').innerText='' //clear previous mobile info
-    console.log(detailId);
+    // console.log(detailId);
     const url = `https://openapi.programming-hero.com/api/phone/${detailId}`
     fetch(url)
         .then(res => res.json())
@@ -47,7 +47,7 @@ const loadeDetailData = (detailId) => {
 }
 
 const displayMobileInfo = (info) => {
-    console.log(info.data.name);
+    // console.log(info.data.sensors[0]);
     const detailsParent = document.getElementById('details-parent');
     const div = document.createElement('div');
     div.innerHTML = `
@@ -76,6 +76,19 @@ const displayMobileInfo = (info) => {
   <p><span class="fw-bold text-success">Radio:</span> ${info.data.others.Radio}</p>
   <p><span class="fw-bold text-success">USB:</span> ${info.data.others.USB}</p>
 </div>
-    `
-    detailsParent.appendChild(div)
+
+`
+    const arraySensors = info.data.mainFeatures.sensors;
+    const arraySensor = arraySensors.join();
+    const arraysens = arraySensor.split(",")
+    console.log(arraysens.length);
+    document.getElementById('list').innerHTML = `
+    <li>${arraysens}</li>
+    `;
+    // for (const prop in arraySensor) {
+    //     console. log(arraySensor[prop]);
+    //     ul.innerText=arraySensor[prop]
+    // }
+    
+    detailsParent.appendChild(div);
 }
