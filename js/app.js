@@ -1,5 +1,6 @@
 const loadMobileData = () => {
-    document.getElementById('parent').innerHTML=''
+    document.getElementById('parent').innerHTML = ''
+    document.getElementById('details-parent').innerText=''
     const inputValue = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
@@ -61,9 +62,19 @@ const displayMobileInfo = (info) => {
   </div>
   <div class="mb-3">
   <h4>Feature</h4>
+  <p><span class="fw-bold text-success">Display:</span> ${info.data.mainFeatures.displaySize}</p>
+  <p><span class="fw-bold text-success">Storage:</span> ${info.data.mainFeatures.storage}</p>
+  <p><span class="fw-bold text-success">Memory:</span> ${info.data.mainFeatures.memory}</p>
+  <p><span class="fw-bold text-success">ChipSet:</span> ${info.data.mainFeatures.chipSet}</p>
 </div>
 <div>
-  <h4>Specifications</h4>
+  <h4>Other Feature</h4>
+  <p><span class="fw-bold text-success">WLAN:</span> ${info.data.others.WLAN}</p>
+  <p><span class="fw-bold text-success">Bluetooth:</span> ${info.data.others.Bluetooth}</p>
+  <p><span class="fw-bold text-success">GPS:</span> ${info.data.others.GPS}</p>
+  <p><span class="fw-bold text-success">NFC:</span> ${info.data.others.NFC}</p>
+  <p><span class="fw-bold text-success">Radio:</span> ${info.data.others.Radio}</p>
+  <p><span class="fw-bold text-success">USB:</span> ${info.data.others.USB}</p>
 </div>
     `
     detailsParent.appendChild(div)
