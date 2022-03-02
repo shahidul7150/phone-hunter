@@ -71,7 +71,7 @@ const displayMobileInfo = (info) => {
       <img src="${info.data.image}" class="card-img-top width-detail-img mx-auto" alt="...">
       <div class="card-body">
         <h5 class="card-title">Name:${info.data.name}</h5>
-        <p class="card-text">Release date: ${info.data.releaseDate}</p>
+        <p class="card-text">Release date: ${info.data.releaseDate ? info.data.releaseDate : 'Coming soon'}</p>
       </div>
     </div>
   </div>
@@ -84,12 +84,12 @@ const displayMobileInfo = (info) => {
 </div>
 <div>
   <h4>Other Feature</h4>
-  <p><span class="fw-bold text-success">WLAN:</span> ${info.data.others?.WLAN}</p>
-  <p><span class="fw-bold text-success">Bluetooth:</span> ${info.data.others?.Bluetooth}</p>
-  <p><span class="fw-bold text-success">GPS:</span> ${info.data.others?.GPS}</p>
-  <p><span class="fw-bold text-success">NFC:</span> ${info.data.others?.NFC}</p>
-  <p><span class="fw-bold text-success">Radio:</span> ${info.data.others?.Radio}</p>
-  <p><span class="fw-bold text-success">USB:</span> ${info.data.others?.USB}</p>
+  <p><span class="fw-bold text-success">WLAN:</span> ${info.data.others?.WLAN ? info.data.others.WLAN:'unknown-info'}</p>
+  <p><span class="fw-bold text-success">Bluetooth:</span> ${info.data.others?.Bluetooth ? info.data.others.Bluetooth:'unknown-info'}</p>
+  <p><span class="fw-bold text-success">GPS:</span> ${info.data.others?.GPS ? info.data.others.GPS:'unknown-info'}</p>
+  <p><span class="fw-bold text-success">NFC:</span> ${info.data.others?.NFC ? info.data.others.NFC:'unknown-info'}</p>
+  <p><span class="fw-bold text-success">Radio:</span> ${info.data.others?.Radio ? info.data.others.Radio:'unknown-info'}</p>
+  <p><span class="fw-bold text-success">USB:</span> ${info.data.others?.USB ? info.data.others.USB:'unknown-info'}</p>
 </div>
 
 `
