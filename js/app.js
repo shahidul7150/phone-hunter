@@ -84,12 +84,12 @@ const displayMobileInfo = (info) => {
 </div>
 <div>
   <h4>Other Feature</h4>
-  <p><span class="fw-bold text-success">WLAN:</span> ${info.data.others.WLAN}</p>
-  <p><span class="fw-bold text-success">Bluetooth:</span> ${info.data.others.Bluetooth}</p>
-  <p><span class="fw-bold text-success">GPS:</span> ${info.data.others.GPS}</p>
-  <p><span class="fw-bold text-success">NFC:</span> ${info.data.others.NFC}</p>
-  <p><span class="fw-bold text-success">Radio:</span> ${info.data.others.Radio}</p>
-  <p><span class="fw-bold text-success">USB:</span> ${info.data.others.USB}</p>
+  <p><span class="fw-bold text-success">WLAN:</span> ${info.data.others?.WLAN}</p>
+  <p><span class="fw-bold text-success">Bluetooth:</span> ${info.data.others?.Bluetooth}</p>
+  <p><span class="fw-bold text-success">GPS:</span> ${info.data.others?.GPS}</p>
+  <p><span class="fw-bold text-success">NFC:</span> ${info.data.others?.NFC}</p>
+  <p><span class="fw-bold text-success">Radio:</span> ${info.data.others?.Radio}</p>
+  <p><span class="fw-bold text-success">USB:</span> ${info.data.others?.USB}</p>
 </div>
 
 `
